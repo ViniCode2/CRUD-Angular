@@ -1,0 +1,38 @@
+<form class="w-full flex justify-center items-center flex-col pt-11 gap-6" novalidate [formGroup]="form">
+    
+    <div class="w-full p-1 border-solid border-2 border-indigo-500 rounded"> 
+        <input class="w-full outline-none bg-transparent text-white placeholder:pl-1" autocapitalize="off" autocorrect="off" type="text" placeholder="Username" formControlName="name">   
+    </div>
+    <div class="flex flex-row w-full"> 
+        <div class="p-1 border-solid border-2 border-indigo-500 rounded">
+            <input class="w-full outline-none bg-transparent text-white placeholder:pl-1 webkit-" type="text" placeholder="City" formControlName="city">
+        </div>
+        <!-- <div class="w-6/12 flex justify-end">
+            <select name="select" class="bg-transparent outline-none text-white hover:cursor-pointer" >
+                <option value="valor1" selected formControlName="states" >States</option>
+            </select>
+        </div> -->
+    </div>
+    <div class="w-full p-1 border-solid border-2 border-indigo-500 rounded">
+        <input class="w-full outline-none bg-transparent text-white placeholder:pl-1" type="text" placeholder="Address" formControlName="address" >
+    </div>
+    <div class="w-full flex justify-start">
+        <div class="p-1 border-solid border-2 border-indigo-500 rounded">
+            <input class="w-full outline-none bg-transparent text-white placeholder:pl-1 appearance-none" type="text" placeholder="Cell" formControlName="cell">
+        </div>
+    </div>
+    <div class="grid w-full grid-cols-2 justify-items-center">
+        <div class="w-[90%] p-1 mr-3 border-solid border-2 border-indigo-500 rounded flex justify-center">
+            <input class="w-full outline-none bg-transparent text-white placeholder:pl-1" type="email" placeholder="Email" formControlName="email" >
+        </div>
+        <div class="w-[90%] p-1 ml-3 border-solid border-2 border-indigo-500 rounded flex justify-center">
+            <input class="w-full outline-none bg-transparent text-white placeholder:pl-1" type="password" placeholder="Password" formControlName="password" >
+        </div>
+    </div>
+    
+    
+    <div class="w-full flex justify-center hover:bg-violet-700 border-solid border-2 border-indigo-500 text-white transition rounded hover:cursor-pointer">
+        <button type="submit" class="w-full bg-none" (click)="onSubmit()" (click)="createInput()" >Enviar</button>
+    </div>
+
+</form>

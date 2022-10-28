@@ -1,0 +1,65 @@
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- Button trigger modal -->
+  <button type="button" class="border-solid border-2 border-indigo-600 hover:bg-violet-600 transition text-white p-2 mt-3 rounded-md " data-toggle="modal" data-target="#exampleModalCenter">
+    Abrir tabela
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered flex justify-center" role="document">
+      <div class="modal-content bg-[#11101091] border-solid border-4 border-indigo-600 rounded-xl text-white p-3 w-[100vw]">
+        <div class="relative flex justify-center text-lg">
+          <h5 class="modal-title p-2 font-bold" id="exampleModalLongTitle">Tabela de cadastros</h5>
+          <button type="button" class="close absolute top-0 right-0 mt-2 mr-2" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="text-white hover:cursor-pointer">&times;</span>
+          </button>
+        </div>
+        <div class="h-96 pr-3 scrollbar scrollbar-thumb-zinc-800 scrollbar-track-slate-300 scrollbar-thumb-rounded-lg scrollbar-w-1">
+            
+            <table class="table table-striped" *ngIf="modals$ | async as modals; else loadingError">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">States</th>
+                    <th scope="col">Addresss</th>
+                    <th scope="col">Cell</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let modal of modals$ | async">
+                    <th scope="row">{{ modal.id }}</th>
+                    <td>{{ modal.name }}</td>
+                    <td>{{ modal.city }}</td>
+                    <td>{{ modal.states }}</td>
+                    <td>{{ modal.address }}</td>
+                    <td>{{ modal.cell }}</td>
+                    <td>{{ modal.email }}</td>
+                    <td>{{ modal.password }}</td>
+                    
+                  <div class="h-20 flex items-center">
+                    <div class="flex gap-1">
+                      <button type="button" class="btn btn-outline-danger"><i class='bx bx-trash'></i></button>
+                      <button type="button" class="btn btn-outline-success"><i class='bx bxs-edit'></i></button>
+                    </div>
+                  </div>
+
+                  </tr>
+                </tbody>
+              </table>
+
+              <ng-template #loadingError>
+                <div class="bg-red-500 flex justify-center items-center h-10 rounded absolute pl-2 pr-2 top-1/2 right-10" *ngIf="error$ | async">
+                  Erro ao carregar cadastros. Tente novamente mais tarde.
+                </div>
+              </ng-template>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
